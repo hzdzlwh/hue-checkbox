@@ -5,6 +5,9 @@ import ColorCheckbox from '../src/index'
 console.log(ColorCheckbox)
 
 ReactDom.render(
-  <ColorCheckbox color="#000000">checkbox</ColorCheckbox>,
+  <div>
+    <ColorCheckbox checked color="#000000">checkbox</ColorCheckbox>
+    <ColorCheckbox disabled color="#0000FF">checkbox</ColorCheckbox>
+  </div>,
   document.getElementById('app')
 )

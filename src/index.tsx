@@ -56,7 +56,7 @@ const Checkbox: React.FC<CheckboxProps> = (
   return (
     <label className="hue-checkbox-wrapper">
       <span className={classString}>
-        <input type="checkbox" className="input" checked={!!innerChecked} onChange={handleChange} />
+        <input type="checkbox" disabled={disabled} className="input" checked={!!innerChecked} onChange={handleChange} />
         <span ref={innerRef} className="checkbox-inner"></span>
       </span>
       {children !== undefined && <span >{children}</span>}
