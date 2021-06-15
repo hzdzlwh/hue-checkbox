@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import classNames from 'classnames'
 import './index.less'
 
 
@@ -17,11 +18,27 @@ const Checkbox: React.FC<CheckboxProps> = (
     defaultChecked,
     children,
     onChange,
+    disabled,
+    color = '#1890ff',
     ...restProps
   }
 ) => {
   
   const [innerChecked, setInnerChecked] = useState(checked || defaultChecked)
+  const innerRef = useRef<HTMLSpanElement>(null)
+
+  useEffect(() => {
+    if (innerRef.current !== null) {
+      innerRef.current.style.backgroundColor = color
+      innerRef.current.style.opacity = '0.15'
+    }
+  }, [])
+
+  useEffect(() => {
+    if (innerRef.current !== null) {
+      innerRef.current.style.opacity = innerChecked ? '1' : '0.15'
+    }
+  }, [innerChecked])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     
@@ -31,13 +48,18 @@ const Checkbox: React.FC<CheckboxProps> = (
     }
   }
 
+  const classString = classNames('hue-checkbox', {
+    [`hue-checkbox-checked`]: innerChecked,
+    [`hue-checkbox-disabled`]: disabled,
+  });
+
   return (
-    <label className="yx-checkbox-wrapper">
-      <span>
-        <input type="checkbox" checked={!!innerChecked} onChange={handleChange} />
-        <span></span>
+    <label className="hue-checkbox-wrapper">
+      <span className={classString}>
+        <input type="checkbox" className="input" checked={!!innerChecked} onChange={handleChange} />
+        <span ref={innerRef} className="checkbox-inner"></span>
       </span>
-      {children !== undefined && <span>{children}</span>}
+      {children !== undefined && <span >{children}</span>}
     </label>
   )
 }
