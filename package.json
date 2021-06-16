@@ -10,7 +10,9 @@
     "start": "cross-env NODE_ENV=development webpack serve --open",
     "build": "rm -rf ./dist && cross-env NODE_ENV=production webpack"
   },
-  "keywords": ["react"],
+  "keywords": [
+    "react"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {

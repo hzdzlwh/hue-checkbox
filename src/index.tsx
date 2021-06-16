@@ -35,6 +35,10 @@ const Checkbox: React.FC<CheckboxProps> = (
   }, [])
 
   useEffect(() => {
+    setInnerChecked(checked)
+  }, [checked])
+
+  useEffect(() => {
     if (innerRef.current !== null) {
       innerRef.current.style.opacity = innerChecked ? '1' : '0.15'
     }
