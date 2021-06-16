@@ -23,10 +23,9 @@ const Checkbox: React.FC<CheckboxProps> = (
     ...restProps
   }
 ) => {
-  
-  const [innerChecked, setInnerChecked] = useState(checked || defaultChecked)
+  console.log('refresh')
+  const [innerChecked, setInnerChecked] = useState(checked !== undefined ? checked : defaultChecked)
   const innerRef = useRef<HTMLSpanElement>(null)
-
   useEffect(() => {
     if (innerRef.current !== null) {
       innerRef.current.style.backgroundColor = color
@@ -35,8 +34,13 @@ const Checkbox: React.FC<CheckboxProps> = (
   }, [])
 
   useEffect(() => {
-    setInnerChecked(checked)
-  }, [checked])
+    if (checked !== undefined) {
+      setInnerChecked(checked)
+    }
+    if (color && innerRef.current !== null) {
+      innerRef.current.style.backgroundColor = color
+    }
+  }, [checked, color])
 
   useEffect(() => {
     if (innerRef.current !== null) {
