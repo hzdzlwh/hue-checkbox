@@ -46,7 +46,9 @@ const Checkbox: React.FC<CheckboxProps> = (
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     
-    setInnerChecked(e.target.checked)
+    if (checked === undefined) {
+      setInnerChecked(e.target.checked)
+    }
     if (onChange) {
       onChange(e)
     }
