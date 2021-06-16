@@ -2,7 +2,7 @@ hue-checkbox
 =============
 
 
-A react component can custome checkbox select backagroud color
+A react component can custome checkbox select background color
 
 Install with [npm](https://www.npmjs.com/), [Yarn](https://yarnpkg.com/)
 
