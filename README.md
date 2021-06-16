@@ -31,6 +31,7 @@ import HueCheckbox from 'hue-checkbox'
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| color | Specifies the checkbox selected background color | string | #1890ff |  |
 | checked | Specifies whether the checkbox is selected | boolean | false |  |
 | defaultChecked | Specifies the initial state: whether or not the checkbox is selected | boolean | false |  |
 | disabled | If disable checkbox | boolean | false |  |
