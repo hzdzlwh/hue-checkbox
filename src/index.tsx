@@ -23,7 +23,6 @@ const Checkbox: React.FC<CheckboxProps> = (
     ...restProps
   }
 ) => {
-  console.log('refresh')
   const [innerChecked, setInnerChecked] = useState(checked !== undefined ? checked : defaultChecked)
   const innerRef = useRef<HTMLSpanElement>(null)
   useEffect(() => {
