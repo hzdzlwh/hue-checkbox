@@ -12,7 +12,7 @@ interface CheckboxProps {
   onChange?: (e: any) => void;
 }
 
-const Checkbox: React.FC<CheckboxProps> = (
+const Checkbox: React.FC<CheckboxProps> = React.memo((
   {
     checked,
     defaultChecked,
@@ -23,6 +23,7 @@ const Checkbox: React.FC<CheckboxProps> = (
     ...restProps
   }
 ) => {
+  console.log('refresh')
   const [innerChecked, setInnerChecked] = useState(checked !== undefined ? checked : defaultChecked)
   const innerRef = useRef<HTMLSpanElement>(null)
   useEffect(() => {
@@ -71,6 +72,6 @@ const Checkbox: React.FC<CheckboxProps> = (
       {children !== undefined && <span >{children}</span>}
     </label>
   )
-}
+})
 
 export default Checkbox
